@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Extension
+
+# Model Form Field configuration
+form: $/marek/alza/models/extension/fields.yaml
+
+# Model Class name
+modelClass: Marek\Alza\Models\Extension
+
+# Default redirect location
+defaultRedirect: marek/alza/extensions
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: marek/alza/extensions/update/:id
+    redirectClose: marek/alza/extensions
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: marek/alza/extensions
+    redirectClose: marek/alza/extensions
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

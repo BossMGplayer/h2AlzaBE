@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Proffesion
+
+# Model Form Field configuration
+form: $/marek/alza/models/proffesion/fields.yaml
+
+# Model Class name
+modelClass: Marek\Alza\Models\Proffesion
+
+# Default redirect location
+defaultRedirect: marek/alza/proffesions
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: marek/alza/proffesions/update/:id
+    redirectClose: marek/alza/proffesions
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: marek/alza/proffesions
+    redirectClose: marek/alza/proffesions
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title
