@@ -32,8 +32,8 @@ class CreateCitiesTable extends Migration
             $table->boolean('Levoča')->default(false);
             $table->boolean('Kežmarok')->default(false);
             $table->boolean('Pieštany')->default(false);
-            $table->boolean('Bratislava')->default(false);
-            $table->boolean('Bratislava')->default(false);
+            $table->boolean('Hurbanovo')->default(false);
+            $table->boolean('Košice')->default(false);
         });
     }
 

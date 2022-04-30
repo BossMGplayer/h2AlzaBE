@@ -64,7 +64,9 @@ class City extends Model
     public $hasMany = [];
     public $hasOneThrough = [];
     public $hasManyThrough = [];
-    public $belongsTo = [];
+    public $belongsTo = [
+        'post' => PostPerson::class
+    ];
     public $belongsToMany = [];
     public $morphTo = [];
     public $morphOne = [];

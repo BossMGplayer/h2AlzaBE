@@ -1,18 +1,19 @@
 <?php namespace Marek\AlzaBE\Models;
 
+use Marek\AlzaBE\Controllers\Languages;
 use Model;
 
 /**
- * Person Model
+ * PostPerson Model
  */
-class Person extends Model
+class PostPerson extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'marek_alzabe_people';
+    public $table = 'marek_alzabe_post_people';
 
     /**
      * @var array Guarded fields
@@ -61,7 +62,8 @@ class Person extends Model
      * @var array Relations
      */
     public $hasOne = [
-        'City' => City::class
+        'City' => City::class,
+        'Profession' => Profession::class
     ];
     public $hasMany = [
         'Languages' => Language::class

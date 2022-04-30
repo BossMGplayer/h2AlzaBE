@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Extension
+
+# Model Form Field configuration
+form: $/marek/alzabe/models/extension/fields.yaml
+
+# Model Class name
+modelClass: Marek\AlzaBE\Models\Extension
+
+# Default redirect location
+defaultRedirect: marek/alzabe/extensions
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: marek/alzabe/extensions/update/:id
+    redirectClose: marek/alzabe/extensions
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: marek/alzabe/extensions
+    redirectClose: marek/alzabe/extensions
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

@@ -3,16 +3,16 @@
 use Model;
 
 /**
- * Person Model
+ * Extension Model
  */
-class Person extends Model
+class Extension extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'marek_alzabe_people';
+    public $table = 'marek_alzabe_extensions';
 
     /**
      * @var array Guarded fields
@@ -60,15 +60,15 @@ class Person extends Model
     /**
      * @var array Relations
      */
-    public $hasOne = [
-        'City' => City::class
-    ];
+    public $hasOne = [];
     public $hasMany = [
-        'Languages' => Language::class
+        'Skills' => Skill::class
     ];
     public $hasOneThrough = [];
     public $hasManyThrough = [];
-    public $belongsTo = [];
+    public $belongsTo = [
+        'Profession' => Profession::class
+    ];
     public $belongsToMany = [];
     public $morphTo = [];
     public $morphOne = [];
