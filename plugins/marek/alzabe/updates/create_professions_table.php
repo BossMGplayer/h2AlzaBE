@@ -11,6 +11,11 @@ class CreateProfessionsTable extends Migration
         Schema::create('marek_alzabe_professions', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
+            $table->enum('professions', [
+                'Programátor',
+                'Dizajnér',
+                'Grafik'
+            ]);
         });
     }
 

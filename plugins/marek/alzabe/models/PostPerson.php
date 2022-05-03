@@ -2,6 +2,7 @@
 
 use Marek\AlzaBE\Controllers\Languages;
 use Model;
+use System\Models\File;
 
 /**
  * PostPerson Model
@@ -75,6 +76,8 @@ class PostPerson extends Model
     public $morphTo = [];
     public $morphOne = [];
     public $morphMany = [];
-    public $attachOne = [];
+    public $attachOne = [
+        'avatar' => File::class
+    ];
     public $attachMany = [];
 }

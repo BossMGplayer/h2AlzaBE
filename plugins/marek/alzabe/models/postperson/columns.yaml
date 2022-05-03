@@ -6,3 +6,21 @@ columns:
     id:
         label: ID
         searchable: true
+
+    name:
+        label: Name
+
+    surname:
+        label: Name
+
+    description:
+        label: Description
+
+    pay:
+        label: Pay
+
+    email:
+        label: Email
+
+    phone:
+        label: Phone number

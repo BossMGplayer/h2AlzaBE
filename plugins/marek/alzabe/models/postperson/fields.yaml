@@ -5,4 +5,42 @@
 fields:
     id:
         label: ID
-        disabled: true
+        searchable: true
+
+    avatar:
+        label: Profile picture
+        type: fileupload
+        mode: image
+        imageHeight: 260
+        imageWidth: 260
+        thumbOptions:
+            mode: crop
+            offset:
+                - 0
+                - 0
+            quality: 90
+            sharpen: 0
+            interlace: false
+            extension: auto
+
+    name:
+        label: Name
+
+    surname:
+        label: Surname
+
+    description:
+        label: Description
+        type: textarea
+        size: large
+
+    pay:
+        label: Pay
+        type: number
+
+    email:
+        label: Email
+        type: mail
+
+    phone:
+        label: Phone number

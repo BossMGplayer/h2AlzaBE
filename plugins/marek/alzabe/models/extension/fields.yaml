@@ -6,3 +6,25 @@ fields:
     id:
         label: ID
         disabled: true
+
+    extensions:
+        label: Extensions
+        type: dropdown
+        defaults:
+        options:
+            C
+            C++
+            C#
+            PHP
+            Java Script
+            Vue
+            Java
+            Python
+            CSS
+            Tailwind
+            Ionic
+            3D
+            2D
+            PixelArt
+
+

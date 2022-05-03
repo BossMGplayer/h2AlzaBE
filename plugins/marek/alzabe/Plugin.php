@@ -85,7 +85,7 @@ class Plugin extends PluginBase
             'alzabe' => [
                 'label'       => 'AlzaBE',
                 'url'         => Backend::url('marek/alzabe/people'),
-                'icon'        => 'icon-leaf',
+                'icon'        => 'icon-user',
                 'permissions' => ['marek.alzabe.*'],
                 'order'       => 500,
             ],

@@ -6,3 +6,12 @@ fields:
     id:
         label: ID
         disabled: true
+
+    professions:
+        label: Profession
+        type: dropdown
+        defaults:
+        options:
+            Programátor
+            Dizajnér
+            Grafik

@@ -2,6 +2,7 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
+use Marek\AlzaBE\Models\Skill;
 
 /**
  * Skills Back-end Controller
@@ -31,5 +32,50 @@ class Skills extends Controller
         parent::__construct();
 
         BackendMenu::setContext('Marek.AlzaBE', 'alzabe', 'skills');
+    }
+
+    public function apiIndex()
+    {
+        return Skill::with('extension')->get();
+    }
+
+    public function apiUpdate($id)
+    {
+        $skill = Skill::findOrFail($id);
+
+        if (input('professions')) {
+            $skill->Skill = input('professions');
+        }
+
+        $skill->save();
+        return $skill;
+    }
+
+    public function destroy($id)
+    {
+        $skill = Skill::findOrFail($id);
+        $skill ->delete();
+        return response('Deleted', 200);
+    }
+
+    public function show($id)
+    {
+        return Skill::findOrFail($id);
+    }
+
+    public function store()
+    {
+        $data = input();
+        return Skill::create($data);
+    }
+
+    public function callAction($method, $parameters = false)
+    {
+        $action = 'api' . ucfirst($method);
+        if (method_exists($this, $action) && is_callable(array($this, $action))) {
+            return call_user_func_array(array($this, $action), $parameters);
+        } else {
+            return parent::callAction($method, array_values($parameters));
+        }
     }
 }

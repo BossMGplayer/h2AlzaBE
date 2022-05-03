@@ -6,3 +6,35 @@ fields:
     id:
         label: ID
         disabled: true
+
+    cities:
+        label: City
+        type: dropdown
+        defaults:
+        options:
+              Bratislava
+              Nitra
+              Martin
+              Komárno
+              Nové Zámky
+              Dulovce
+              Martovce
+              Imeľ
+              Nesvady
+              Bajč
+              Kolárovo
+              Banská Bystrica
+              Bardejov
+              Trenčín
+              Prievidza
+              Žilina
+              Poprad
+              Považská Bystrica
+              Levice
+              Lučenec
+              Hummenné
+              Levoča
+              Kežmarok
+              Pieštany
+              Hurbanovo
+              Košice

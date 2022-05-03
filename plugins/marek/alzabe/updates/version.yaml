@@ -1,1 +1,9 @@
 1.0.1: First version of AlzaBE
+1.0.2:
+    - create_cities_table.php
+    - create_extensions_table.php
+    - create_languages_table.php
+    - create_people_table.php
+    - create_post_people_table.php
+    - create_professions_table.php
+    - create_skills_table.php

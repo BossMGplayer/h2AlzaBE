@@ -1,7 +1,8 @@
 <?php namespace Marek\AlzaBE\Controllers;
 
-use BackendMenu;
+use Backend\Facades\BackendMenu;
 use Backend\Classes\Controller;
+use Marek\AlzaBE\Models\Person;
 
 /**
  * People Back-end Controller
@@ -31,5 +32,62 @@ class People extends Controller
         parent::__construct();
 
         BackendMenu::setContext('Marek.AlzaBE', 'alzabe', 'people');
+    }
+
+    public function apiIndex()
+    {
+        return Person::all();
+    }
+
+    public function apiUpdate($id)
+    {
+        $person = Person::findOrFail($id);
+
+        if (input('name')) {
+            $person->Person = input('name');
+        }
+
+        if (input('surname')) {
+            $person->Person = input('surname');
+        }
+
+        if (input('email')) {
+            $person->Person = input('email');
+        }
+
+        if (input('phone')) {
+            $person->Person = input('phone');
+        }
+
+        $person->save();
+        return $person;
+    }
+
+    public function destroy($id)
+    {
+        $person = Person::findOrFail($id);
+        $person->delete();
+        return response('Deleted', 200);
+    }
+
+    public function show($id)
+    {
+        return Person::findOrFail($id);
+    }
+
+    public function store()
+    {
+        $data = input();
+        return Person::create($data);
+    }
+
+    public function callAction($method, $parameters = false)
+    {
+        $action = 'api' . ucfirst($method);
+        if (method_exists($this, $action) && is_callable(array($this, $action))) {
+            return call_user_func_array(array($this, $action), $parameters);
+        } else {
+            return parent::callAction($method, array_values($parameters));
+        }
     }
 }

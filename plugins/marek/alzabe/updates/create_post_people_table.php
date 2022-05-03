@@ -13,7 +13,6 @@ class CreatePostPeopleTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
-            // Fotka
             $table->string('name');
             $table->string('surname');
             $table->string('description');

@@ -1,6 +1,7 @@
 <?php namespace Marek\AlzaBE\Models;
 
 use Model;
+use System\Models\File;
 
 /**
  * Person Model
@@ -61,10 +62,10 @@ class Person extends Model
      * @var array Relations
      */
     public $hasOne = [
-        'City' => City::class
+        'city' => City::class
     ];
     public $hasMany = [
-        'Languages' => Language::class
+        'languages' => Language::class
     ];
     public $hasOneThrough = [];
     public $hasManyThrough = [];
@@ -73,6 +74,8 @@ class Person extends Model
     public $morphTo = [];
     public $morphOne = [];
     public $morphMany = [];
-    public $attachOne = [];
+    public $attachOne = [
+        'avatar' => File::class
+    ];
     public $attachMany = [];
 }

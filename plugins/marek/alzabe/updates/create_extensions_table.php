@@ -11,21 +11,22 @@ class CreateExtensionsTable extends Migration
         Schema::create('marek_alzabe_extensions', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
-            $table->boolean('C')->default(false);
-            $table->boolean('C++')->default(false);
-            $table->boolean('C#')->default(false);
-            $table->boolean('PHP')->default(false);
-            $table->boolean('Java Script')->default(false);
-            $table->boolean('Vue')->default(false);
-            $table->boolean('Java')->default(false);
-            $table->boolean('Python')->default(false);
-            $table->boolean('CSS')->default(false);
-            $table->boolean('Tailwind')->default(false);
-            $table->boolean('Ionic')->default(false);
-
-            $table->boolean('3D')->default(false);
-            $table->boolean('2D')->default(false);
-            $table->boolean('Pixel Art')->default(false);
+            $table->enum('extensions', [
+                'C',
+                'C++',
+                'C#',
+                'PHP',
+                'Java Script',
+                'Vue',
+                'Java',
+                'Python',
+                'CSS',
+                'Tailwind',
+                'Ionic',
+                '3D',
+                '2D',
+                'PixelArt'
+            ]);
         });
     }
 

@@ -13,10 +13,8 @@ class CreatePeopleTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
-            // Fotka
             $table->string('name');
             $table->string('surname');
-            $table->integer('pay');
             $table->integer('email');
             $table->integer('phone');
         });

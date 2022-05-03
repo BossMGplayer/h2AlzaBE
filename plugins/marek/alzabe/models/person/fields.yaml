@@ -6,3 +6,41 @@ fields:
     id:
         label: ID
         disabled: true
+
+    avatar:
+        label: Profile picture
+        type: fileupload
+        mode: image
+        imageHeight: 260
+        imageWidth: 260
+        thumbOptions:
+            mode: crop
+            offset:
+                - 0
+                - 0
+            quality: 90
+            sharpen: 0
+            interlace: false
+            extension: auto
+
+    name:
+        label: Name
+
+    surname:
+        label: Surname
+
+    pay:
+        label: Pay
+        type: number
+
+    email:
+        label: Email
+        type: email
+
+    phone:
+        label: Phone number
+
+    city:
+        label: City
+        type: relation
+        nameFrom: cities

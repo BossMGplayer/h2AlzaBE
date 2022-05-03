@@ -1,7 +1,8 @@
 <?php namespace Marek\AlzaBE\Controllers;
 
-use BackendMenu;
+use Backend\Facades\BackendMenu;
 use Backend\Classes\Controller;
+use Marek\AlzaBE\Models\Profession;
 
 /**
  * Professions Back-end Controller
@@ -31,5 +32,50 @@ class Professions extends Controller
         parent::__construct();
 
         BackendMenu::setContext('Marek.AlzaBE', 'alzabe', 'professions');
+    }
+
+    public function apiIndex()
+    {
+        return Profession::with('post')->get();
+    }
+
+    public function apiUpdate($id)
+    {
+        $profession = Profession::findOrFail($id);
+
+        if (input('professions')) {
+            $profession->PostPerson = input('professions');
+        }
+
+        $profession->save();
+        return $profession;
+    }
+
+    public function destroy($id)
+    {
+        $profession = Profession::findOrFail($id);
+        $profession ->delete();
+        return response('Deleted', 200);
+    }
+
+    public function show($id)
+    {
+        return Profession::findOrFail($id);
+    }
+
+    public function store()
+    {
+        $data = input();
+        return Profession::create($data);
+    }
+
+    public function callAction($method, $parameters = false)
+    {
+        $action = 'api' . ucfirst($method);
+        if (method_exists($this, $action) && is_callable(array($this, $action))) {
+            return call_user_func_array(array($this, $action), $parameters);
+        } else {
+            return parent::callAction($method, array_values($parameters));
+        }
     }
 }

@@ -3,6 +3,11 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+    skills:
+        label: Skill
+        type: dropdown
+        defaults:
+        options:
+            Beginner
+            Intermediate
+            Expert

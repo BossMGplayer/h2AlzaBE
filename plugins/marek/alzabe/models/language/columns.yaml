@@ -3,6 +3,5 @@
 # ===================================
 
 columns:
-    id:
-        label: ID
-        searchable: true
+    English:
+        label: English

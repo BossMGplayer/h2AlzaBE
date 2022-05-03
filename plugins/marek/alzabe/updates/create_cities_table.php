@@ -11,29 +11,7 @@ class CreateCitiesTable extends Migration
         Schema::create('marek_alzabe_cities', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
-            $table->boolean('Bratislava')->default(false);
-            $table->boolean('Nitra')->default(false);
-            $table->boolean('Martin')->default(false);
-            $table->boolean('Komárno')->default(false);
-            $table->boolean('Banská Bystrica')->default(false);
-
-            $table->boolean('Bardejov')->default(false);
-            $table->boolean('Trenčín')->default(false);
-            $table->boolean('Prievidza')->default(false);
-            $table->boolean('Spišská Nová Ves')->default(false);
-            $table->boolean('Žilina')->default(false);
-
-            $table->boolean('Poprad')->default(false);
-            $table->boolean('Považská Bystrica')->default(false);
-            $table->boolean('Levice')->default(false);
-            $table->boolean('Lučenec')->default(false);
-            $table->boolean('Hummenné')->default(false);
-
-            $table->boolean('Levoča')->default(false);
-            $table->boolean('Kežmarok')->default(false);
-            $table->boolean('Pieštany')->default(false);
-            $table->boolean('Hurbanovo')->default(false);
-            $table->boolean('Košice')->default(false);
+            $table->string('cityName');
         });
     }
 

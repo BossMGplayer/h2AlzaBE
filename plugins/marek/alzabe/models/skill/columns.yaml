@@ -6,3 +6,6 @@ columns:
     id:
         label: ID
         searchable: true
+
+    skills:
+        label: Skill
