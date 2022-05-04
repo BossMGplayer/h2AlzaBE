@@ -24,7 +24,15 @@ class PostPerson extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'name',
+        'surname',
+        'pay',
+        'description',
+        'email',
+        'phone',
+        'city'
+    ];
 
     /**
      * @var array Validation rules for attributes
@@ -63,11 +71,10 @@ class PostPerson extends Model
      * @var array Relations
      */
     public $hasOne = [
-        'City' => City::class,
-        'Profession' => Profession::class
+        'profession' => Profession::class
     ];
     public $hasMany = [
-        'Languages' => Language::class
+        'languages' => Language::class
     ];
     public $hasOneThrough = [];
     public $hasManyThrough = [];

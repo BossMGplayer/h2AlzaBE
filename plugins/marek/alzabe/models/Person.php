@@ -1,5 +1,6 @@
 <?php namespace Marek\AlzaBE\Models;
 
+use Database\Tester\Models\Post;
 use Model;
 use System\Models\File;
 
@@ -23,7 +24,13 @@ class Person extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'name',
+        'surname',
+        'email',
+        'phone',
+        'city'
+    ];
 
     /**
      * @var array Validation rules for attributes
@@ -62,7 +69,7 @@ class Person extends Model
      * @var array Relations
      */
     public $hasOne = [
-        'city' => City::class
+        'postPerson' => PostPerson::class
     ];
     public $hasMany = [
         'languages' => Language::class

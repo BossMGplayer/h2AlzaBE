@@ -22,7 +22,9 @@ class Profession extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'professions'
+    ];
 
     /**
      * @var array Validation rules for attributes
@@ -62,12 +64,12 @@ class Profession extends Model
      */
     public $hasOne = [];
     public $hasMany = [
-        'Extensions' => Extension::class
+        'extensions' => Extension::class
     ];
     public $hasOneThrough = [];
     public $hasManyThrough = [];
     public $belongsTo = [
-        'PostPerson' => PostPerson::class
+        'postPerson' => PostPerson::class
     ];
     public $belongsToMany = [];
     public $morphTo = [];

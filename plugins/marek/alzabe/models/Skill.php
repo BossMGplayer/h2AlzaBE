@@ -22,7 +22,9 @@ class Skill extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'skills'
+    ];
 
     /**
      * @var array Validation rules for attributes
@@ -65,9 +67,12 @@ class Skill extends Model
     public $hasOneThrough = [];
     public $hasManyThrough = [];
     public $belongsTo = [
-        'Language' => Language::class
+
     ];
-    public $belongsToMany = [];
+    public $belongsToMany = [
+        'languages' => Language::class,
+        'extensions' => Extension::class
+    ];
     public $morphTo = [];
     public $morphOne = [];
     public $morphMany = [];

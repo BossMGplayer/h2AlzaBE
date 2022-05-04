@@ -22,7 +22,9 @@ class Language extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'english'
+    ];
 
     /**
      * @var array Validation rules for attributes

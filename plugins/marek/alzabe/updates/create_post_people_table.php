@@ -19,6 +19,7 @@ class CreatePostPeopleTable extends Migration
             $table->integer('pay');
             $table->integer('email');
             $table->integer('phone');
+            $table->boolean('city');
         });
     }
 

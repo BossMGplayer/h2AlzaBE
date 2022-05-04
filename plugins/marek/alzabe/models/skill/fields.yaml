@@ -5,9 +5,9 @@
 fields:
     skills:
         label: Skill
-        type: dropdown
+        type: radio
         defaults:
         options:
-            Beginner
-            Intermediate
-            Expert
+            Beginner: Beginner
+            Intermediate: Intermediate
+            Expert: Expert

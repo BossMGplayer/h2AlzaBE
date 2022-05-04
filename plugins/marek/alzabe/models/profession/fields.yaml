@@ -7,11 +7,11 @@ fields:
         label: ID
         disabled: true
 
-    professions:
+    profession:
         label: Profession
-        type: dropdown
+        type: radio
         defaults:
         options:
-            Programátor
-            Dizajnér
-            Grafik
+            Programátor: Programátor
+            Dizajnér: Dizajnér
+            Grafik: Grafik

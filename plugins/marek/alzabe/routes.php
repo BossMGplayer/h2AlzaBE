@@ -1,6 +1,5 @@
 <?php
 
-use Marek\AlzaBE\Controllers\Cities;
 use Marek\AlzaBE\Controllers\Extensions;
 use Marek\AlzaBE\Controllers\Languages;
 use Marek\AlzaBE\Controllers\People;
@@ -13,7 +12,6 @@ Route::group([
     'prefix' => 'api/v1',
 
 ], function () {
-    Route::apiResource('Cities', Cities::class);
     Route::apiResource('Extensions', Extensions::class);
     Route::apiResource('Languages', Languages::class);
     Route::apiResource('People', People::class);

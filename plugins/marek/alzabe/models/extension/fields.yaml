@@ -9,22 +9,22 @@ fields:
 
     extensions:
         label: Extensions
-        type: dropdown
-        defaults:
+        type: radio
+        defaults: C
         options:
-            C
-            C++
-            C#
-            PHP
-            Java Script
-            Vue
-            Java
-            Python
-            CSS
-            Tailwind
-            Ionic
-            3D
-            2D
-            PixelArt
+            C: C
+            C++: C++
+            C#: C#
+            PHP: PHP
+            Java Script: Java Script
+            Vue: Vue
+            Java: Java
+            Python: Python
+            CSS: CSS
+            Tailwind: Tailwind
+            Ionic: Ionic
+            3D: 3D
+            2D: 2D
+            PixelArt: PixelArt
 
 

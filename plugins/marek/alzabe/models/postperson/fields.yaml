@@ -44,3 +44,18 @@ fields:
 
     phone:
         label: Phone number
+
+    city:
+        label: City
+        type: radio
+        quickselect: true
+        defaults: Bratislava
+        options:
+            Bratislava: Bratislava
+            Prešov: Prešov
+            Ružomberok: Ružomberok
+            Hurbanovo: Hurbanovo
+            Vištuk: Vištuk
+            Košice: Košice
+            Čenkovce: Čenkovce
+

@@ -24,3 +24,6 @@ columns:
 
     phone:
         label: Phone number
+
+    city:
+        label: City

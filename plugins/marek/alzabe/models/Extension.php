@@ -22,7 +22,9 @@ class Extension extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'extensions'
+    ];
 
     /**
      * @var array Validation rules for attributes

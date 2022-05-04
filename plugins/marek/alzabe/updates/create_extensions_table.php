@@ -11,22 +11,7 @@ class CreateExtensionsTable extends Migration
         Schema::create('marek_alzabe_extensions', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
-            $table->enum('extensions', [
-                'C',
-                'C++',
-                'C#',
-                'PHP',
-                'Java Script',
-                'Vue',
-                'Java',
-                'Python',
-                'CSS',
-                'Tailwind',
-                'Ionic',
-                '3D',
-                '2D',
-                'PixelArt'
-            ]);
+            $table->boolean('extensions');
         });
     }
 

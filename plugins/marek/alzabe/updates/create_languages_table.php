@@ -11,7 +11,7 @@ class CreateLanguagesTable extends Migration
         Schema::create('marek_alzabe_languages', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
-            $table->boolean('English')->default(false);
+            $table->boolean('english')->default(false);
         });
     }
 

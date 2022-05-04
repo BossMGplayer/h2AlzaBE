@@ -13,12 +13,11 @@ columns:
     surname:
         label: Surname
 
-    pay:
-        label: Pay
-        type: number
-
     email:
         label: Email
 
     phone:
         label: Phone number
+
+    city:
+        label: City

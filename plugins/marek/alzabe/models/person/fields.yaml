@@ -29,10 +29,6 @@ fields:
     surname:
         label: Surname
 
-    pay:
-        label: Pay
-        type: number
-
     email:
         label: Email
         type: email
@@ -42,5 +38,13 @@ fields:
 
     city:
         label: City
-        type: relation
-        nameFrom: cities
+        type: radio
+        defaults: Bratislava
+        options:
+            Bratislava: Bratislava
+            Prešov: Prešov
+            Ružomberok: Ružomberok
+            Hurbanovo: Hurbanovo
+            Vištuk: Vištuk
+            Košice: Košice
+            Čenkovce: Čenkovce

@@ -11,11 +11,7 @@ class CreateSkillsTable extends Migration
         Schema::create('marek_alzabe_skills', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
-            $table->enum('skills', [
-                'Beginner',
-                'Intermediate',
-                'Expert'
-            ]);
+            $table->boolean('skills');
         });
     }
 

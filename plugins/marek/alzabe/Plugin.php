@@ -85,9 +85,22 @@ class Plugin extends PluginBase
             'alzabe' => [
                 'label'       => 'AlzaBE',
                 'url'         => Backend::url('marek/alzabe/people'),
-                'icon'        => 'icon-user',
+                'icon'        => 'icon-leaf',
                 'permissions' => ['marek.alzabe.*'],
                 'order'       => 500,
+
+                'sideMenu' => [
+                    'people' => [
+                        'label'         => 'People',
+                        'url'           => Backend::url('adamzachar/todolist/people'),
+                        'icon'          => 'icon-user',
+                    ],
+                    'postpeople'     => [
+                        'label'         => 'Posts from people',
+                        'url'           => Backend::url('marek/alzabe/postpeople'),
+                        'icon'          => 'icon-check-square-o',
+                    ]
+                ]
             ],
         ];
     }
