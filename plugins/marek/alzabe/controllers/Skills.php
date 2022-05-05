@@ -42,12 +42,8 @@ class Skills extends Controller
     public function apiUpdate($id)
     {
         $skill = Skill::findOrFail($id);
+        $skill->update(input());
 
-        if (input('professions')) {
-            $skill->Skill = input('professions');
-        }
-
-        $skill->save();
         return $skill;
     }
 

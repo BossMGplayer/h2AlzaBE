@@ -69,7 +69,7 @@ class Language extends Model
     public $hasOneThrough = [];
     public $hasManyThrough = [];
     public $belongsTo = [
-        'UserPost' => PostPerson::class
+        'post' => PostPerson::class
     ];
     public $belongsToMany = [];
     public $morphTo = [];

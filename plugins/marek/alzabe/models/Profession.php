@@ -23,7 +23,8 @@ class Profession extends Model
      * @var array Fillable fields
      */
     protected $fillable = [
-        'professions'
+        'profession',
+        'post_person_id'
     ];
 
     /**
@@ -69,7 +70,7 @@ class Profession extends Model
     public $hasOneThrough = [];
     public $hasManyThrough = [];
     public $belongsTo = [
-        'postPerson' => PostPerson::class
+        'post' => PostPerson::class
     ];
     public $belongsToMany = [];
     public $morphTo = [];

@@ -145,7 +145,6 @@
 
         this.$modal.on('hidden.bs.modal', function(){
             self.triggerEvent('hidden.oc.popup')
-            $.oc.foundation.controlUtils.disposeControls(self.$container.get(0))
             self.$container.remove()
             $(document.body).removeClass('modal-open')
             self.dispose()

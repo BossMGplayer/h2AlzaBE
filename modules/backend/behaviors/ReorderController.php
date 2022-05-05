@@ -214,10 +214,7 @@ class ReorderController extends ControllerBehavior
         $model = $this->controller->reorderGetModel();
         $modelTraits = class_uses($model);
 
-        if (
-            isset($modelTraits[\October\Rain\Database\Traits\Sortable::class]) ||
-            $model->isClassExtendedWith(\October\Rain\Database\Behaviors\Sortable::class)
-        ) {
+        if (isset($modelTraits[\October\Rain\Database\Traits\Sortable::class])) {
             $this->sortMode = 'simple';
         }
         elseif (isset($modelTraits[\October\Rain\Database\Traits\NestedTree::class])) {
@@ -225,7 +222,7 @@ class ReorderController extends ControllerBehavior
             $this->showTree = true;
         }
         else {
-            throw new ApplicationException('The model must implement the Sortable trait/behavior or the NestedTree trait.');
+            throw new ApplicationException('The model must implement the NestedTree or Sortable traits.');
         }
 
         return $model;

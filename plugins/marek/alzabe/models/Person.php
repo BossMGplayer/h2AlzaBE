@@ -29,8 +29,11 @@ class Person extends Model
         'surname',
         'email',
         'phone',
-        'city'
+        'city',
+        'person_id'
     ];
+
+    protected $with = ['postPeople'];
 
     /**
      * @var array Validation rules for attributes
@@ -68,11 +71,10 @@ class Person extends Model
     /**
      * @var array Relations
      */
-    public $hasOne = [
-        'postPerson' => PostPerson::class
-    ];
+    public $hasOne = [];
     public $hasMany = [
-        'languages' => Language::class
+        'languages' => Language::class,
+        'postPeople' => PostPerson::class
     ];
     public $hasOneThrough = [];
     public $hasManyThrough = [];

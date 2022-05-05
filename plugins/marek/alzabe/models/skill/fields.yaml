@@ -3,7 +3,7 @@
 # ===================================
 
 fields:
-    skills:
+    skill:
         label: Skill
         type: radio
         defaults:

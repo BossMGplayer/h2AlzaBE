@@ -20,10 +20,6 @@ use BackendAuth;
  */
 class Filter extends WidgetBase
 {
-    const DEFAULT_AFTER_DATE = '0001-01-01 00:00:00';
-
-    const DEFAULT_BEFORE_DATE = '2999-12-31 23:59:59';
-
     //
     // Configurable properties
     //
@@ -121,7 +117,7 @@ class Filter extends WidgetBase
                     $after = $scope->value[0]->format('Y-m-d H:i:s');
                     $before = $scope->value[1]->format('Y-m-d H:i:s');
 
-                    if (strcasecmp($after, self::DEFAULT_AFTER_DATE) > 0) {
+                    if (strcasecmp($after, '0000-00-00 00:00:00') > 0) {
                         $params['afterStr'] = Backend::dateTime($scope->value[0], ['formatAlias' => 'dateMin']);
                         $params['after']    = $after;
                     }
@@ -130,7 +126,7 @@ class Filter extends WidgetBase
                         $params['after']    = null;
                     }
 
-                    if (strcasecmp($before, self::DEFAULT_BEFORE_DATE) < 0) {
+                    if (strcasecmp($before, '2999-12-31 23:59:59') < 0) {
                         $params['beforeStr'] = Backend::dateTime($scope->value[1], ['formatAlias' => 'dateMin']);
                         $params['before']    = $before;
                     }
@@ -1031,9 +1027,9 @@ class Filter extends WidgetBase
                         $dates[] = Carbon::createFromFormat('Y-m-d H:i:s', $date);
                     } elseif (empty($date)) {
                         if ($i == 0) {
-                            $dates[] = Carbon::createFromFormat('Y-m-d H:i:s', self::DEFAULT_AFTER_DATE);
+                            $dates[] = Carbon::createFromFormat('Y-m-d H:i:s', '0000-00-00 00:00:00');
                         } else {
-                            $dates[] = Carbon::createFromFormat('Y-m-d H:i:s', self::DEFAULT_BEFORE_DATE);
+                            $dates[] = Carbon::createFromFormat('Y-m-d H:i:s', '2999-12-31 23:59:59');
                         }
                     } else {
                         $dates = [];

@@ -97,14 +97,6 @@ class ServiceProvider extends ModuleServiceProvider
             }
         }
 
-        /*
-         * Set a default samesite config value for invalid values
-         */
-        if (!in_array(strtolower(Config::get('session.same_site')), ['lax', 'strict', 'none'])) {
-            Config::set('session.same_site', 'Lax');
-        }
-
-        Paginator::useBootstrapThree();
         Paginator::defaultSimpleView('system::pagination.simple-default');
 
         /*
@@ -143,7 +135,7 @@ class ServiceProvider extends ModuleServiceProvider
     protected function registerPrivilegedActions()
     {
         $requests = ['/combine/', '@/system/updates', '@/system/install', '@/backend/auth'];
-        $commands = ['october:up', 'october:update', 'october:env', 'october:version'];
+        $commands = ['october:up', 'october:update'];
 
         /*
          * Requests
@@ -258,8 +250,6 @@ class ServiceProvider extends ModuleServiceProvider
         $this->registerConsoleCommand('october.env', 'System\Console\OctoberEnv');
         $this->registerConsoleCommand('october.install', 'System\Console\OctoberInstall');
         $this->registerConsoleCommand('october.passwd', 'System\Console\OctoberPasswd');
-        $this->registerConsoleCommand('october.version', 'System\Console\OctoberVersion');
-        $this->registerConsoleCommand('october.manifest', 'System\Console\OctoberManifest');
 
         $this->registerConsoleCommand('plugin.install', 'System\Console\PluginInstall');
         $this->registerConsoleCommand('plugin.remove', 'System\Console\PluginRemove');
@@ -294,7 +284,7 @@ class ServiceProvider extends ModuleServiceProvider
     {
         Event::listen(\Illuminate\Log\Events\MessageLogged::class, function ($event) {
             if (EventLog::useLogging()) {
-                EventLog::add($event->message, $event->level, $event->context);
+                EventLog::add($event->message, $event->level);
             }
         });
     }

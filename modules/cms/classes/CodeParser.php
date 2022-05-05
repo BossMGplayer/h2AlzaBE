@@ -129,7 +129,7 @@ class CodeParser
         $body = preg_replace('/^\s*function/m', 'public function', $body);
 
         $namespaces = [];
-        $pattern = '/(use\s+[a-z0-9_\\\\]+(\s+as\s+[a-z0-9_]+)?;(\r\n|\n)?)/mi';
+        $pattern = '/(use\s+[a-z0-9_\\\\]+(\s+as\s+[a-z0-9_]+)?;\n?)/mi';
         preg_match_all($pattern, $body, $namespaces);
         $body = preg_replace($pattern, '', $body);
 
@@ -141,15 +141,14 @@ class CodeParser
         $fileContents = '<?php '.PHP_EOL;
 
         foreach ($namespaces[0] as $namespace) {
-            // Only allow compound or aliased use statements
-            if (str_contains($namespace, '\\') || str_contains($namespace, ' as ')) {
-                $fileContents .= trim($namespace).PHP_EOL;
+            if (str_contains($namespace, '\\')) {
+                $fileContents .= $namespace;
             }
         }
 
         $fileContents .= 'class '.$className.$parentClass.PHP_EOL;
         $fileContents .= '{'.PHP_EOL;
-        $fileContents .= trim($body).PHP_EOL;
+        $fileContents .= $body.PHP_EOL;
         $fileContents .= '}'.PHP_EOL;
 
         $this->validate($fileContents);
@@ -225,8 +224,7 @@ class CodeParser
         $cached = $this->getCachedInfo() ?: [];
         $cached[$this->filePath] = $cacheItem;
 
-        $expiresAt = now()->addMinutes(1440);
-        Cache::put($this->dataCacheKey, base64_encode(serialize($cached)), $expiresAt);
+        Cache::put($this->dataCacheKey, base64_encode(serialize($cached)), 1440);
 
         self::$cache[$this->filePath] = $result;
     }

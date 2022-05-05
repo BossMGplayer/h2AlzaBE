@@ -92,7 +92,7 @@ class Plugin extends PluginBase
                 'sideMenu' => [
                     'people' => [
                         'label'         => 'People',
-                        'url'           => Backend::url('adamzachar/todolist/people'),
+                        'url'           => Backend::url('marek/alzabe/people'),
                         'icon'          => 'icon-user',
                     ],
                     'postpeople'     => [

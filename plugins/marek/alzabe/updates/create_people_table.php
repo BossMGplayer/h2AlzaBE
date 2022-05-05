@@ -15,9 +15,9 @@ class CreatePeopleTable extends Migration
 
             $table->string('name');
             $table->string('surname');
-            $table->integer('email');
-            $table->integer('phone');
-            $table->boolean('city');
+            $table->string('email');
+            $table->string('phone');
+            $table->boolean('city')->default(false);
         });
     }
 

@@ -42,25 +42,10 @@ class People extends Controller
     public function apiUpdate($id)
     {
         $person = Person::findOrFail($id);
+        $person->update(input());
 
-        if (input('name')) {
-            $person->Person = input('name');
-        }
-
-        if (input('surname')) {
-            $person->Person = input('surname');
-        }
-
-        if (input('email')) {
-            $person->Person = input('email');
-        }
-
-        if (input('phone')) {
-            $person->Person = input('phone');
-        }
-
-        $person->save();
         return $person;
+
     }
 
     public function destroy($id)

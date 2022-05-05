@@ -10,8 +10,11 @@ class CreateLanguagesTable extends Migration
     {
         Schema::create('marek_alzabe_languages', function (Blueprint $table) {
             $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->timestamps();
 
-            $table->boolean('english')->default(false);
+            $table->boolean('language')->default(false);
+            $table->integer('post_person_id')->nullable();
         });
     }
 

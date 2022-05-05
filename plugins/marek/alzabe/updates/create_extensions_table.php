@@ -10,8 +10,11 @@ class CreateExtensionsTable extends Migration
     {
         Schema::create('marek_alzabe_extensions', function (Blueprint $table) {
             $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->timestamps();
 
-            $table->boolean('extensions');
+            $table->boolean('extension')->default(false);
+            $table->integer('profession_id')->nullable();
         });
     }
 

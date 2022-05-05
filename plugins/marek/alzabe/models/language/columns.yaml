@@ -3,5 +3,5 @@
 # ===================================
 
 columns:
-    English:
-        label: English
+    language:
+        label: Language

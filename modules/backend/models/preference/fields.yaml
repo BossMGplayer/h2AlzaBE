@@ -21,7 +21,6 @@ tabs:
 
         editor_preview:
             type: partial
-            label: backend::lang.editor.preview
             tab: backend::lang.backend_preferences.code_editor
             path: field_editor_preview
 

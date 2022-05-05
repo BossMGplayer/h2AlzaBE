@@ -42,11 +42,8 @@ class Languages extends Controller
     public function apiUpdate($id)
     {
         $language = Language::findOrFail($id);
+        $language->update(input());
 
-        if (input('Language')) {
-            $language->Language = input('Language');
-        }
-        $language->save();
         return $language;
     }
 

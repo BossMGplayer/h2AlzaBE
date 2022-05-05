@@ -42,11 +42,6 @@
     }
 
     FormWidget.prototype.dispose = function() {
-        this.unbindDependants()
-        this.unbindCheckboxList()
-        this.unbindLazyTabs()
-        this.unbindCollapsibleSections()
-
         this.$el.off('dispose-control', this.proxy(this.dispose))
         this.$el.removeData('oc.formwidget')
 
@@ -81,14 +76,6 @@
     }
 
     /*
-     * Unbind checkboxlist handlers
-     */
-    FormWidget.prototype.unbindCheckboxList = function() {
-        this.$el.off('click', '[data-field-checkboxlist-all]')
-        this.$el.off('click', '[data-field-checkboxlist-none]')
-    }
-
-    /*
      * Get all fields elements that belong to this form, nested form
      * fields are removed from this collection.
      */
@@ -107,40 +94,13 @@
      * Bind dependant fields
      */
     FormWidget.prototype.bindDependants = function() {
-        var self = this,
-            fieldMap = this._getDependants()
 
-        /*
-         * When a field is updated, refresh its dependents
-         */
-        $.each(fieldMap, function(fieldName, toRefresh) {
-            $(document).on('change.oc.formwidget',
-                '[data-field-name="' + fieldName + '"]',
-                $.proxy(self.onRefreshDependants, self, fieldName, toRefresh)
-            )
-        })
-    }
-
-    /*
-     * Dispose of the dependant field handlers
-     */
-    FormWidget.prototype.unbindDependants = function() {
-        var fieldMap = this._getDependants()
-
-        $.each(fieldMap, function(fieldName, toRefresh) {
-            $(document).off('change.oc.formwidget', '[data-field-name="' + fieldName + '"]')
-        })
-    }
-
-    /*
-     * Retrieve the dependant fields
-     */
-    FormWidget.prototype._getDependants = function() {
         if (!$('[data-field-depends]', this.$el).length) {
             return;
         }
 
-        var fieldMap = {},
+        var self = this,
+            fieldMap = {},
             fieldElements = this.getFieldElements()
 
         /*
@@ -159,7 +119,15 @@
             })
         })
 
-        return fieldMap
+        /*
+         * When a master is updated, refresh its slaves
+         */
+        $.each(fieldMap, function(fieldName, toRefresh) {
+            $(document).on('change.oc.formwidget',
+                '[data-field-name="' + fieldName + '"]',
+                $.proxy(self.onRefreshDependants, self, fieldName, toRefresh)
+            );
+        })
     }
 
     /*
@@ -186,9 +154,6 @@
                 data: refreshData
             }).success(function() {
                 self.toggleEmptyTabs()
-                $.each(toRefresh.fields, function(key, field) {
-                    $('[data-field-name="' + field + '"]').trigger('change')
-                })
             })
         }, this.dependantUpdateInterval)
 
@@ -236,15 +201,6 @@
         if ($('> li.active.tab-lazy', tabContainer).length) {
             $('> li.active.tab-lazy > [data-toggle="tab"]', tabContainer).trigger('click')
         }
-    }
-
-    /*
-     * Unbind the lazy tab handlers
-     */
-    FormWidget.prototype.unbindLazyTabs = function() {
-        var tabControl = $('[data-control=tab]', this.$el)
-
-        $('.nav-tabs', tabControl).off('click', '.tab-lazy [data-toggle="tab"]')
     }
 
     /*
@@ -304,13 +260,6 @@
                     .nextUntil('.section-field').toggle()
             })
             .nextUntil('.section-field').hide()
-    }
-
-    /*
-     * Unbinds collapsible section handlers
-     */
-    FormWidget.prototype.unbindCollapsibleSections = function() {
-        $('.section-field[data-field-collapsible]', this.$form).off('click')
     }
 
     FormWidget.DEFAULTS = {

@@ -31,8 +31,11 @@ class PostPerson extends Model
         'description',
         'email',
         'phone',
-        'city'
+        'city',
+        'person_id'
     ];
+
+    protected $with = ['profession', 'languages'];
 
     /**
      * @var array Validation rules for attributes
@@ -78,7 +81,9 @@ class PostPerson extends Model
     ];
     public $hasOneThrough = [];
     public $hasManyThrough = [];
-    public $belongsTo = [];
+    public $belongsTo = [
+        'person' => Person::class
+    ];
     public $belongsToMany = [];
     public $morphTo = [];
     public $morphOne = [];

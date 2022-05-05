@@ -3,5 +3,9 @@
 # ===================================
 
 fields:
-    English:
-        label: English
+    language:
+        label: Language
+        type: radio
+        default:
+        options:
+            english: English

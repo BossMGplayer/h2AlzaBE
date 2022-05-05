@@ -82,10 +82,6 @@ class MailManager
      */
     public function addContentToMailer($message, $code, $data, $plainOnly = false)
     {
-        if (!is_string($code)) {
-            return false;
-        }
-
         if (isset($this->templateCache[$code])) {
             $template = $this->templateCache[$code];
         }

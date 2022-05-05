@@ -10,8 +10,11 @@ class CreateProfessionsTable extends Migration
     {
         Schema::create('marek_alzabe_professions', function (Blueprint $table) {
             $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->timestamps();
 
-            $table->boolean('profession');
+            $table->boolean('profession')->default(false);
+            $table->integer('post_person_id')->nullable();
         });
     }
 

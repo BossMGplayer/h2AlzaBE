@@ -42,12 +42,8 @@ class Professions extends Controller
     public function apiUpdate($id)
     {
         $profession = Profession::findOrFail($id);
+        $profession->update(input());
 
-        if (input('professions')) {
-            $profession->PostPerson = input('professions');
-        }
-
-        $profession->save();
         return $profession;
     }
 

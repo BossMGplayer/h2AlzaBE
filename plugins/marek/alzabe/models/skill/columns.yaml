@@ -7,5 +7,5 @@ columns:
         label: ID
         searchable: true
 
-    skills:
+    skill:
         label: Skill

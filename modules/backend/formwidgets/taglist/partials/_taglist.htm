@@ -1,32 +1,18 @@
 <?php
     $selectedValues = is_array($selectedValues) ? $selectedValues : [];
     $availableOptions = $useKey ? $fieldOptions : array_unique(array_merge($selectedValues, $fieldOptions));
-    $displayOnlyOptions = [];
-
-    foreach ($availableOptions as $key => $option) {
-        if (!strlen($option)) {
-            continue;
-        }
-        if (($useKey && in_array($key, $selectedValues)) || (!$useKey && in_array($option, $selectedValues))) {
-            $displayOnlyOptions[] = $option;
-        }
-    }
 ?>
 <!-- Tag List -->
 <?php if ($this->previewMode || $field->readOnly || $field->disabled): ?>
     <ul class="form-control taglist--preview" <?= $field->readOnly || $field->disabled ? 'disabled="disabled"' : ''; ?>>
-        <?php foreach ($displayOnlyOptions as $option): ?>
-            <li class="taglist__item"><?= e(trans($option)) ?></li>
+        <?php foreach ($availableOptions as $key => $option): ?>
+            <?php if (!strlen($option)) continue ?>
+            <?php if (($useKey && in_array($key, $selectedValues)) || (!$useKey && in_array($option, $selectedValues))): ?>
+                <li class="taglist__item"><?= e(trans($option)) ?></li>
+            <?php endif ?>
         <?php endforeach ?>
     </ul>
-    <?php if (is_array($field->value)): ?>
-        <?php foreach ($displayOnlyOptions as $option): ?>
-        <input
-            type="hidden"
-            name="<?= $field->getName() ?>[]"
-            value="<?= $option ?>">
-        <?php endforeach ?>
-    <?php else: ?>
+    <?php if ($field->readOnly): ?>
         <input
             type="hidden"
             name="<?= $field->getName() ?>"

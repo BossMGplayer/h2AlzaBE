@@ -1,6 +1,6 @@
 <?php namespace Marek\AlzaBE\Updates;
 
-use Schema;
+use October\Rain\Support\Facades\Schema;
 use October\Rain\Database\Schema\Blueprint;
 use October\Rain\Database\Updates\Migration;
 
@@ -17,9 +17,10 @@ class CreatePostPeopleTable extends Migration
             $table->string('surname');
             $table->string('description');
             $table->integer('pay');
-            $table->integer('email');
-            $table->integer('phone');
-            $table->boolean('city');
+            $table->string('email');
+            $table->string('phone');
+            $table->boolean('city')->default(false);
+            $table->integer('person_id')->nullable();
         });
     }
 

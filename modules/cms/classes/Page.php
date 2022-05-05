@@ -1,7 +1,6 @@
 <?php namespace Cms\Classes;
 
 use Lang;
-use BackendAuth;
 use ApplicationException;
 use October\Rain\Filesystem\Definitions as FileDefinitions;
 
@@ -185,12 +184,6 @@ class Page extends CmsCompoundObject
             }
 
             $page = self::loadCached($theme, $item->reference);
-
-            // Remove hidden CMS pages from menus when backend user is logged out
-            if ($page && $page->is_hidden && !BackendAuth::getUser()) {
-                return;
-            }
-
             $controller = Controller::getController() ?: new Controller;
             $pageUrl = $controller->pageUrl($item->reference, [], false);
 

@@ -35,30 +35,17 @@ class OctoberFresh extends Command
         if (!$this->confirmToProceed('Are you sure?')) {
             return;
         }
-        
-        $themeRemoved = false;
-        $pluginRemoved = false;
 
         $demoThemePath = themes_path().'/demo';
+
         if (File::exists($demoThemePath)) {
-            File::deleteDirectory($demoThemePath);
-            $themeRemoved = true;
-        }
-
-        $demoPluginPath = plugins_path().'/october/demo';
-        if (File::exists($demoPluginPath)) {
             Artisan::call('plugin:remove', ['name' => 'October.Demo', '--force' => true]);
-            $pluginRemoved = true;
-        }
+            File::deleteDirectory($demoThemePath);
 
-        if ($themeRemoved && $pluginRemoved) {
-            $this->info('Demo theme and plugin have been removed! Enjoy a fresh start.');
-        } elseif ($themeRemoved) {
-            $this->info('Demo theme has been removed! Enjoy a fresh start.');
-        } elseif ($pluginRemoved) {
-            $this->info('Demo plugin has been removed! Enjoy a fresh start.');
-        } else {
-            $this->info('Demo theme and plugin have already been removed.');
+            $this->info('Demo has been removed! Enjoy a fresh start.');
+        }
+        else {
+            $this->error('Demo theme is already removed.');
         }
     }
 

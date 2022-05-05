@@ -42,12 +42,8 @@ class Extensions extends Controller
     public function apiUpdate($id)
     {
         $extension = Extension::findOrFail($id);
+        $extension->update(input());
 
-        if (input('Extension')) {
-            $extension->Extension = input('Extension');
-        }
-
-        $extension->save();
         return $extension;
     }
 

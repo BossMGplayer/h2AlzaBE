@@ -1,6 +1,5 @@
 <?php namespace System\Console;
 
-use App;
 use Illuminate\Console\Command;
 
 /**
@@ -328,7 +327,7 @@ class OctoberEnv extends Command
      */
     protected function writeToConfigFile($content)
     {
-        file_put_contents(rtrim(App::make('path.config'), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $this->config . '.php', $content);
+        file_put_contents(config_path($this->config . '.php'), $content);
     }
 
     /**
@@ -336,7 +335,7 @@ class OctoberEnv extends Command
      */
     protected function lines()
     {
-        return file(rtrim(App::make('path.config'), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $this->config . '.php');
+        return file(config_path($this->config . '.php'));
     }
 
     /**
@@ -370,7 +369,7 @@ class OctoberEnv extends Command
                 'SESSION_DRIVER' => 'driver',
             ],
             'queue' => [
-                'QUEUE_CONNECTION' => 'default',
+                'QUEUE_DRIVER' => 'default',
             ],
             'mail' => [
                 'MAIL_DRIVER' => 'driver',

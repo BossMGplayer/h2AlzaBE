@@ -10,8 +10,12 @@ class CreateSkillsTable extends Migration
     {
         Schema::create('marek_alzabe_skills', function (Blueprint $table) {
             $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->timestamps();
 
-            $table->boolean('skills');
+            $table->boolean('skill')->default(false);
+            $table->integer('language_id')->nullable();
+            $table->integer('extension_id')->nullable();
         });
     }
 

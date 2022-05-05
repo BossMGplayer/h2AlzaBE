@@ -48,7 +48,8 @@ class AccessLog extends Model
         $records = static::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
             ->limit(2)
-            ->get();
+            ->get()
+        ;
 
         if (!count($records)) {
             return null;

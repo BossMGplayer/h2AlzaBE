@@ -42,32 +42,8 @@ class PostPeople extends Controller
     public function apiUpdate($id)
     {
         $postPerson = PostPerson::findOrFail($id);
+        $postPerson->update(input());
 
-        if (input('name')) {
-            $postPerson->PostPerson = input('name');
-        }
-
-        if (input('surname')) {
-            $postPerson->PostPerson = input('surname');
-        }
-
-        if (input('pay')) {
-            $postPerson->PostPerson = input('pay');
-        }
-
-        if (input('description')) {
-            $postPerson->PostPerson = input('description');
-        }
-
-        if (input('email')) {
-            $postPerson->PostPerson = input('email');
-        }
-
-        if (input('phone')) {
-            $postPerson->PostPerson = input('phone');
-        }
-
-        $postPerson->save();
         return $postPerson;
     }
 

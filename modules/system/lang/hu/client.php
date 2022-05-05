@@ -33,6 +33,7 @@ return [
         'fullscreen' => 'Teljes képernyő',
         'preview' => 'Előnézet'
     ],
+
     'mediamanager' => [
         'insert_link' => 'Hivatkozás beszúrása',
         'insert_image' => 'Kép beszúrása',
@@ -44,11 +45,13 @@ return [
         'invalid_video_empty_insert' => 'Válasszon ki legalább egy videót a beszúráshoz.',
         'invalid_audio_empty_insert' => 'Válasszon ki legalább egy audiót a beszúráshoz.'
     ],
+
     'alert' => [
         'confirm_button_text' => 'Igen',
         'cancel_button_text' => 'Mégsem',
         'widget_remove_confirm' => 'Valóban törölni akarja?'
     ],
+
     'datepicker' => [
         'previousMonth' => 'Előző hónap',
         'nextMonth' => 'Következő hónap',
@@ -56,9 +59,11 @@ return [
         'weekdays' => ['vasárnap', 'hétfő', 'kedd', 'szerda', 'csütörtök', 'péntek', 'szombat'],
         'weekdaysShort' => ['va', 'hé', 'ke', 'sze', 'cs', 'pé', 'szo']
     ],
+
     'colorpicker' => [
         'choose' => 'Mentés',
     ],
+
     'filter' => [
         'group' => [
             'all' => 'összes'
@@ -83,6 +88,7 @@ return [
             'max_placeholder' => 'Maximum'
         ]
     ],
+
     'eventlog' => [
         'show_stacktrace' => 'Részletek',
         'hide_stacktrace' => 'Rejtés',
