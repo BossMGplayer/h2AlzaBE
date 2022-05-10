@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Language Skill
+
+# Model Form Field configuration
+form: $/marek/alzabe/models/languageskill/fields.yaml
+
+# Model Class name
+modelClass: Marek\AlzaBE\Models\LanguageSkill
+
+# Default redirect location
+defaultRedirect: marek/alzabe/languageskills
+
+# Create page
+create:
+    title: Create Language Skill
+    redirect: marek/alzabe/languageskills/update/:id
+    redirectClose: marek/alzabe/languageskills
+
+# Update page
+update:
+    title: Edit Language Skill
+    redirect: marek/alzabe/languageskills
+    redirectClose: marek/alzabe/languageskills
+
+# Preview page
+preview:
+    title: Preview Language Skill

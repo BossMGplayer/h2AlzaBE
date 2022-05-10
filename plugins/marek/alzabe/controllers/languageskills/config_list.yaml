@@ -3,16 +3,16 @@
 # ===================================
 
 # Model List Column configuration
-list: $/marek/alzabe/models/skill/columns.yaml
+list: $/marek/alzabe/models/languageskill/columns.yaml
 
 # Model Class name
-modelClass: Marek\AlzaBE\Models\Skill
+modelClass: Marek\AlzaBE\Models\LanguageSkill
 
 # List Title
-title: Manage Skills
+title: Manage Language Skills
 
 # Link URL for each record
-recordUrl: marek/alzabe/skills/update/:id
+recordUrl: marek/alzabe/languageskills/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

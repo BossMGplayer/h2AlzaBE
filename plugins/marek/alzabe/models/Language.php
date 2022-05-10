@@ -23,8 +23,12 @@ class Language extends Model
      * @var array Fillable fields
      */
     protected $fillable = [
-        'english'
+        'language',
+        'person_id',
+        'post_person_id'
     ];
+
+    protected $with = ['languageSkill'];
 
     /**
      * @var array Validation rules for attributes
@@ -63,13 +67,14 @@ class Language extends Model
      * @var array Relations
      */
     public $hasOne = [
-        'Skill' => Skill::class
+        'languageSkill' => LanguageSkill::class
     ];
     public $hasMany = [];
     public $hasOneThrough = [];
     public $hasManyThrough = [];
     public $belongsTo = [
-        'post' => PostPerson::class
+        'post' => PostPerson::class,
+        'person' => Person::class
     ];
     public $belongsToMany = [];
     public $morphTo = [];

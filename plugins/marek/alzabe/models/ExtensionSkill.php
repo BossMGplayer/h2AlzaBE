@@ -3,16 +3,16 @@
 use Model;
 
 /**
- * Profession Model
+ * ExtensionSkill Model
  */
-class Profession extends Model
+class ExtensionSkill extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'marek_alzabe_professions';
+    public $table = 'marek_alzabe_extension_skills';
 
     /**
      * @var array Guarded fields
@@ -23,11 +23,9 @@ class Profession extends Model
      * @var array Fillable fields
      */
     protected $fillable = [
-        'profession',
-        'post_person_id'
+        'extensionSkill',
+        'extension_id'
     ];
-
-    protected $with = ['extension'];
 
     /**
      * @var array Validation rules for attributes
@@ -66,13 +64,9 @@ class Profession extends Model
      * @var array Relations
      */
     public $hasOne = [];
-    public $hasMany = [
-        'extension' => Extension::class
-    ];
-    public $hasOneThrough = [];
-    public $hasManyThrough = [];
+    public $hasMany = [];
     public $belongsTo = [
-        'post' => PostPerson::class
+        'extension' => Extension::class
     ];
     public $belongsToMany = [];
     public $morphTo = [];

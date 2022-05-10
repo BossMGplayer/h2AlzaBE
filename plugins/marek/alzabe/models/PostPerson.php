@@ -35,7 +35,7 @@ class PostPerson extends Model
         'person_id'
     ];
 
-    protected $with = ['profession', 'languages'];
+    protected $with = ['avatar:attachment_id', 'profession', 'languages'];
 
     /**
      * @var array Validation rules for attributes

@@ -1,13 +1,13 @@
 <?php namespace Marek\AlzaBE\Controllers;
 
-use BackendMenu;
+use Backend\Facades\BackendMenu;
 use Backend\Classes\Controller;
-use Marek\AlzaBE\Models\Skill;
+use Marek\AlzaBE\Models\LanguageSkill;
 
 /**
- * Skills Back-end Controller
+ * Language Skills Back-end Controller
  */
-class Skills extends Controller
+class LanguageSkills extends Controller
 {
     /**
      * @var array Behaviors that are implemented by this controller.
@@ -31,38 +31,38 @@ class Skills extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Marek.AlzaBE', 'alzabe', 'skills');
+        BackendMenu::setContext('Marek.AlzaBE', 'alzabe', 'languageskills');
     }
 
     public function apiIndex()
     {
-        return Skill::with('extension')->get();
+        return LanguageSkill::all();
     }
 
     public function apiUpdate($id)
     {
-        $skill = Skill::findOrFail($id);
-        $skill->update(input());
+        $languageskill = LanguageSkill::findOrFail($id);
+        $languageskill->update(input());
 
-        return $skill;
+        return $languageskill;
     }
 
     public function destroy($id)
     {
-        $skill = Skill::findOrFail($id);
-        $skill ->delete();
+        $languageskill = LanguageSkill::findOrFail($id);
+        $languageskill->delete();
         return response('Deleted', 200);
     }
 
     public function show($id)
     {
-        return Skill::findOrFail($id);
+        return LanguageSkill::findOrFail($id);
     }
 
     public function store()
     {
         $data = input();
-        return Skill::create($data);
+        return LanguageSkill::create($data);
     }
 
     public function callAction($method, $parameters = false)

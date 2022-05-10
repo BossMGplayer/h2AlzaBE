@@ -23,8 +23,11 @@ class Extension extends Model
      * @var array Fillable fields
      */
     protected $fillable = [
-        'extensions'
+        'extension',
+        'profession_id'
     ];
+
+    protected $with = ['extensionSkill'];
 
     /**
      * @var array Validation rules for attributes
@@ -62,10 +65,10 @@ class Extension extends Model
     /**
      * @var array Relations
      */
-    public $hasOne = [];
-    public $hasMany = [
-        'Skills' => Skill::class
+    public $hasOne = [
+        'extensionSkill' => ExtensionSkill::class
     ];
+    public $hasMany = [];
     public $hasOneThrough = [];
     public $hasManyThrough = [];
     public $belongsTo = [

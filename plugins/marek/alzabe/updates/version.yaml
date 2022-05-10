@@ -5,4 +5,5 @@
     - create_people_table.php
     - create_post_people_table.php
     - create_professions_table.php
-    - create_skills_table.php
+    - create_extension_skills_table.php
+    - create_language_skills_table.php

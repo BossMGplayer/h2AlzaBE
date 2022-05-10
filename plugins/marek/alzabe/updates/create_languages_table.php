@@ -15,6 +15,7 @@ class CreateLanguagesTable extends Migration
 
             $table->boolean('language')->default(false);
             $table->integer('post_person_id')->nullable();
+            $table->integer('person_id')->nullable();
         });
     }
 

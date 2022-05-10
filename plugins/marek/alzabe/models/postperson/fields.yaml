@@ -40,7 +40,7 @@ fields:
 
     email:
         label: Email
-        type: mail
+        type: email
 
     phone:
         label: Phone number

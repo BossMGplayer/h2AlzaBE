@@ -33,7 +33,7 @@ class Person extends Model
         'person_id'
     ];
 
-    protected $with = ['postPeople'];
+    protected $with = ['avatar:attachment_id', 'languages', 'postPeople'];
 
     /**
      * @var array Validation rules for attributes

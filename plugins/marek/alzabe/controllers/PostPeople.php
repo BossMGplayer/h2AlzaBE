@@ -3,6 +3,9 @@
 use Backend\Facades\BackendMenu;
 use Backend\Classes\Controller;
 use Marek\AlzaBE\Models\PostPerson;
+use Symfony\Component\HttpFoundation\Request;
+use Illuminate\Http\JsonResponse;
+use System\Models\File;
 
 /**
  * Post People Back-end Controller
@@ -59,10 +62,38 @@ class PostPeople extends Controller
         return PostPerson::findOrFail($id);
     }
 
-    public function store()
+    public function store(Request $request): JsonResponse
     {
-        $data = input();
-        return PostPerson::create($data);
+        $postPerson = new PostPerson();
+        $postPerson->name = $request['name'];
+        $postPerson->surname = $request['surname'];
+        $postPerson->description = $request['description'];
+        $postPerson->pay = $request['pay'];
+        $postPerson->email = $request['email'];
+        $postPerson->phone = $request['phone'];
+        $postPerson->city = $request['city'];
+        $postPerson->person_id = $request['person_id'];
+
+        $img = input('avatar');
+        if ($img) {
+            $pattern = '/^data:image\/(.*?);.*base64,(.+)/';
+            if (preg_match($pattern, $img, $matches)) {
+                $ext = $matches[1];
+                $data = $matches[2];
+                $data = str_replace(' ', '+', $data);
+                $imageData = base64_decode($data);
+
+                $name = str_replace('.', '', uniqid(null, true));
+                $disk_name = !empty($ext) ? $name.'.'.$ext : $name;
+                $file = (new File)->fromData($imageData, $disk_name);
+                $postPerson->avatar = $file;
+            }
+        }
+        $postPerson->save();
+
+        return response()->json([
+            'postperson' => $postPerson
+        ], 201);
     }
 
     public function callAction($method, $parameters = false)

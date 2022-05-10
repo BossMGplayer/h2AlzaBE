@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Extension Skill
+
+# Model Form Field configuration
+form: $/marek/alzabe/models/extensionskill/fields.yaml
+
+# Model Class name
+modelClass: Marek\AlzaBE\Models\ExtensionSkill
+
+# Default redirect location
+defaultRedirect: marek/alzabe/extensionskills
+
+# Create page
+create:
+    title: Create Extension Skill
+    redirect: marek/alzabe/extensionskills/update/:id
+    redirectClose: marek/alzabe/extensionskills
+
+# Update page
+update:
+    title: Edit Extension Skill
+    redirect: marek/alzabe/extensionskills
+    redirectClose: marek/alzabe/extensionskills
+
+# Preview page
+preview:
+    title: Preview Extension Skill

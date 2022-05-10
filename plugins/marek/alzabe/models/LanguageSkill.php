@@ -3,16 +3,16 @@
 use Model;
 
 /**
- * Skill Model
+ * LanguageSkill Model
  */
-class Skill extends Model
+class LanguageSkill extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'marek_alzabe_skills';
+    public $table = 'marek_alzabe_language_skills';
 
     /**
      * @var array Guarded fields
@@ -23,7 +23,8 @@ class Skill extends Model
      * @var array Fillable fields
      */
     protected $fillable = [
-        'skills'
+        'language_id',
+        'languageSkill'
     ];
 
     /**
@@ -64,15 +65,10 @@ class Skill extends Model
      */
     public $hasOne = [];
     public $hasMany = [];
-    public $hasOneThrough = [];
-    public $hasManyThrough = [];
     public $belongsTo = [
-
+        'language' => Language::class
     ];
-    public $belongsToMany = [
-        'languages' => Language::class,
-        'extensions' => Extension::class
-    ];
+    public $belongsToMany = [];
     public $morphTo = [];
     public $morphOne = [];
     public $morphMany = [];

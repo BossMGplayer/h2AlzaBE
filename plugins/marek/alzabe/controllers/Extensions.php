@@ -36,7 +36,7 @@ class Extensions extends Controller
 
     public function apiIndex()
     {
-        return Extension::with('Profession')->get();
+        return Extension::with('extensionSkill')->get();
     }
 
     public function apiUpdate($id)
