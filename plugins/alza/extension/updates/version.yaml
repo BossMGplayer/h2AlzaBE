@@ -1,0 +1,4 @@
+1.0.1: First version of Extension
+1.0.2:
+    - create_extension_skills_table.php
+    - create_extensions_table.php

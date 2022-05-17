@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Professions Controller
+
+# Model Form Field configuration
+form: $/alza/profession/models/professionscontroller/fields.yaml
+
+# Model Class name
+modelClass: Alza\Profession\Models\ProfessionsController
+
+# Default redirect location
+defaultRedirect: alza/profession/professionscontroller
+
+# Create page
+create:
+    title: Create Professions Controller
+    redirect: alza/profession/professionscontroller/update/:id
+    redirectClose: alza/profession/professionscontroller
+
+# Update page
+update:
+    title: Edit Professions Controller
+    redirect: alza/profession/professionscontroller
+    redirectClose: alza/profession/professionscontroller
+
+# Preview page
+preview:
+    title: Preview Professions Controller

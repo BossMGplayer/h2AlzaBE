@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: People Controller
+
+# Model Form Field configuration
+form: $/alza/person/models/peoplecontroller/fields.yaml
+
+# Model Class name
+modelClass: Alza\Person\Models\PeopleController
+
+# Default redirect location
+defaultRedirect: alza/person/peoplecontroller
+
+# Create page
+create:
+    title: Create People Controller
+    redirect: alza/person/peoplecontroller/update/:id
+    redirectClose: alza/person/peoplecontroller
+
+# Update page
+update:
+    title: Edit People Controller
+    redirect: alza/person/peoplecontroller
+    redirectClose: alza/person/peoplecontroller
+
+# Preview page
+preview:
+    title: Preview People Controller

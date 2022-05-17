@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Extensions Controller
+
+# Model Form Field configuration
+form: $/alza/extension/models/extensionscontroller/fields.yaml
+
+# Model Class name
+modelClass: Alza\Extension\Models\ExtensionsController
+
+# Default redirect location
+defaultRedirect: alza/extension/extensionscontroller
+
+# Create page
+create:
+    title: Create Extensions Controller
+    redirect: alza/extension/extensionscontroller/update/:id
+    redirectClose: alza/extension/extensionscontroller
+
+# Update page
+update:
+    title: Edit Extensions Controller
+    redirect: alza/extension/extensionscontroller
+    redirectClose: alza/extension/extensionscontroller
+
+# Preview page
+preview:
+    title: Preview Extensions Controller

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Language Skills Controller
+
+# Model Form Field configuration
+form: $/alza/language/models/languageskillscontroller/fields.yaml
+
+# Model Class name
+modelClass: Alza\Language\Models\LanguageSkillsController
+
+# Default redirect location
+defaultRedirect: alza/language/languageskillscontroller
+
+# Create page
+create:
+    title: Create Language Skills Controller
+    redirect: alza/language/languageskillscontroller/update/:id
+    redirectClose: alza/language/languageskillscontroller
+
+# Update page
+update:
+    title: Edit Language Skills Controller
+    redirect: alza/language/languageskillscontroller
+    redirectClose: alza/language/languageskillscontroller
+
+# Preview page
+preview:
+    title: Preview Language Skills Controller

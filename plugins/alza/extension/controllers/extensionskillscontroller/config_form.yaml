@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Extension Skills Controller
+
+# Model Form Field configuration
+form: $/alza/extension/models/extensionskillscontroller/fields.yaml
+
+# Model Class name
+modelClass: Alza\Extension\Models\ExtensionSkillsController
+
+# Default redirect location
+defaultRedirect: alza/extension/extensionskillscontroller
+
+# Create page
+create:
+    title: Create Extension Skills Controller
+    redirect: alza/extension/extensionskillscontroller/update/:id
+    redirectClose: alza/extension/extensionskillscontroller
+
+# Update page
+update:
+    title: Edit Extension Skills Controller
+    redirect: alza/extension/extensionskillscontroller
+    redirectClose: alza/extension/extensionskillscontroller
+
+# Preview page
+preview:
+    title: Preview Extension Skills Controller
