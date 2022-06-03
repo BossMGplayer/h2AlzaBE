@@ -25,7 +25,7 @@ class Language extends Model
      */
     protected $fillable = [
         'name',
-        'person_id' // Viem ze to tu nema byt
+        //'person_id' // Viem ze to tu nema byt
     ];
 
     protected $with = ['languageSkill'];

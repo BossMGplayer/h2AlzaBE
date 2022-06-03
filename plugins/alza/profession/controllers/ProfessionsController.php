@@ -3,6 +3,7 @@
 use BackendMenu;
 use Backend\Classes\Controller;
 use Alza\Profession\Models\Profession;
+use Symfony\Component\HttpKernel\Profiler\FileProfilerStorage;
 
 /**
  * Professions Controller Back-end Controller
@@ -61,8 +62,12 @@ class ProfessionsController extends Controller
     public function store()
     {
         $data = input();
-        return Profession::create($data);
+        $profession = new Profession();
+        $profession->fill($data);
+        $profession-> Proffesion = Profession::findOrFail($data['person_id']);
+        $profession->save();
     }
+
 
     public function callAction($method, $parameters = false)
     {

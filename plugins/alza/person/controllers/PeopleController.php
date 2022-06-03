@@ -41,7 +41,7 @@ class PeopleController extends Controller
         return Person::all();
     }
 
-    public function apiUpdate($id): JsonResponse
+    public function apiUpdate($id)
     {
         $person = Person::findOrFail($id);
         $person->update(input());

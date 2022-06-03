@@ -26,7 +26,7 @@ class Extension extends Model
      */
     protected $fillable = [
         'name',
-        'profession_id' // Viem ze to tu nema byt
+        //'profession_id' // Viem ze to tu nema byt
     ];
 
     protected $with = ['extensionSkill'];

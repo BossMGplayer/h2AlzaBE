@@ -13,8 +13,8 @@ class CreateExtensionSkillsTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
+            $table->string('skill_level');
             $table->unsignedBigInteger('extension_id')->index();
-            $table->string('experience');
         });
     }
 

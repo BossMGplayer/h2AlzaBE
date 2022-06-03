@@ -61,7 +61,10 @@ class LanguageSkillsController extends Controller
     public function store()
     {
         $data = input();
-        return LanguageSkill::create($data);
+        $languageskill = new LanguageSkill();
+        $languageskill->fill($data);
+        $languageskill-> LanguageSkill = LanguageSkill::findOrFail($data['language_id']);
+        $languageskill->save();
     }
 
     public function callAction($method, $parameters = false)

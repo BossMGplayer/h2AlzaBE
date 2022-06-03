@@ -20,8 +20,6 @@ class CreatePeopleTable extends Migration
             $table->string('email');
             $table->string('phone');
             $table->string('city');
-
-            //$table->unsignedBigInteger('user_id')->index();
         });
     }
 

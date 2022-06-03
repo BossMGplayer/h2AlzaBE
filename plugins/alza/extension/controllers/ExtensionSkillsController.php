@@ -1,5 +1,6 @@
 <?php namespace Alza\Extension\Controllers;
 
+use Alza\Extension\Models\Extension;
 use BackendMenu;
 use Backend\Classes\Controller;
 use Alza\Extension\Models\ExtensionSkill;
@@ -62,7 +63,10 @@ class ExtensionSkillsController extends Controller
     public function store()
     {
         $data = input();
-        return ExtensionSkill::create($data);
+        $extensionSkill = new ExtensionSkill();
+        $extensionSkill->fill($data);
+        $extensionSkill-> Extension = Extension::findOrFail($data['extension_id']);
+        $extensionSkill->save();
     }
 
     public function callAction($method, $parameters = false)

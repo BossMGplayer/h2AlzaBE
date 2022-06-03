@@ -23,8 +23,8 @@ class ExtensionSkill extends Model
      * @var array Fillable fields
      */
     protected $fillable = [
-        'experience',
-        'extension_id' // Viem ze to tu nema byt
+        'skill_level',
+        //'extension_id' // Viem ze to tu nema byt
     ];
 
     /**

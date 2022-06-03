@@ -61,7 +61,10 @@ class LanguagesController extends Controller
     public function store()
     {
         $data = input();
-        return Language::create($data);
+        $language = new Language();
+        $language->fill($data);
+        $language-> Language = Language::findOrFail($data['person_id']);
+        $language->save();
     }
 
     public function callAction($method, $parameters = false)

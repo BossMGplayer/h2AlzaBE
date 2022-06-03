@@ -23,8 +23,8 @@ class LanguageSkill extends Model
      * @var array Fillable fields
      */
     protected $fillable = [
-        'experience',
-        'language_id' // Viem ze to tu nema byt
+        'skill_level',
+        //'language_id' // Viem ze to tu nema byt
     ];
 
     /**

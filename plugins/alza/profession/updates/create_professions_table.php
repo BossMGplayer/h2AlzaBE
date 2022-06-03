@@ -14,6 +14,7 @@ class CreateProfessionsTable extends Migration
             $table->timestamps();
 
             $table->string('name');
+
             $table->unsignedBigInteger('person_id')->index();
         });
     }

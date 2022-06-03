@@ -13,7 +13,7 @@ class CreateLanguageSkillsTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
-            $table->string('experience');
+            $table->string('skill_level');
             $table->unsignedBigInteger('language_id')->index();
         });
     }

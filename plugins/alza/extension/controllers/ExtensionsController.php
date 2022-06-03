@@ -1,5 +1,6 @@
 <?php namespace Alza\Extension\Controllers;
 
+use Alza\Profession\Models\Profession;
 use BackendMenu;
 use Backend\Classes\Controller;
 use Alza\Extension\Models\Extension;
@@ -62,7 +63,10 @@ class ExtensionsController extends Controller
     public function store()
     {
         $data = input();
-        return Extension::create($data);
+        $extension = new Extension();
+        $extension->fill($data);
+        $extension-> Proffesion = Profession::findOrFail($data['proffesion_id']);
+        $extension->save();
     }
 
     public function callAction($method, $parameters = false)
